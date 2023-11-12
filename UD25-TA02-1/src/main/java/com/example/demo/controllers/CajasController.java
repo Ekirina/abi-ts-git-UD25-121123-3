@@ -27,8 +27,8 @@ public class CajasController {
 	}
 	
 	@PostMapping("/cajas")
-	public Cajas salvarCajas(@RequestBody Cajas articulos) {
-		return cajasServiceImpl.guardarCajas(articulos);
+	public Cajas salvarCajas(@RequestBody Cajas cajas) {
+		return cajasServiceImpl.guardarCajas(cajas);
 	}
 	@GetMapping("/cajas/{id}")
 	public Cajas cajasXREF(@PathVariable(name="num_referencia")String num_referencia) {
