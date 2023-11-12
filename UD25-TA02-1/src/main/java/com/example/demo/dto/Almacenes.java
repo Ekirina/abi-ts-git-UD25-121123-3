@@ -2,6 +2,8 @@ package com.example.demo.dto;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -25,12 +27,15 @@ public class Almacenes {
 	private Integer capacidad; //Quizás hay que poner el integer en mayúsuculas y el nombre entero
 	
 	@OneToMany
-	@JoinColumn(name="num_referencia")
+	@JoinColumn(name="codigo_almacen")//dudas sobre a quién llamo
 	private List <Cajas> cajas;
 	
 	//Constructores
+	public Almacenes() {
+		
+	}
 	public Almacenes(Long id, String lugar, Integer capacidad) {
-		super();
+		//super();
 		this.id = id;
 		this.lugar = lugar;
 		this.capacidad = capacidad;
@@ -63,7 +68,7 @@ public class Almacenes {
 
 	//return Cajas
 	@JsonIgnore
-	@OnetoMany(fetch=FetchType.LAZY, mappedBy = "Cajas")
+	@OneToMany(fetch=FetchType.LAZY, mappedBy = "Cajas")
 	public List<Cajas> getCajas() {
 		return cajas;
 	}
@@ -77,6 +82,7 @@ public class Almacenes {
 	public String toString() {
 		return "Almacenes [id=" + id + ", lugar=" + lugar + ", capacidad=" + capacidad + "]";
 	}
+
 	
 	
 }
