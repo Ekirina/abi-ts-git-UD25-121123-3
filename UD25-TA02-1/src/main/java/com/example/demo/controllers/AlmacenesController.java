@@ -16,7 +16,7 @@ import com.example.demo.dto.Almacenes;
 import com.example.demo.services.AlmacenesServiceImpl;
 
 @RestController
-@RequestMapping
+@RequestMapping("/api")
 public class AlmacenesController {
 	@Autowired
 	AlmacenesServiceImpl almacenesServiceImpl;

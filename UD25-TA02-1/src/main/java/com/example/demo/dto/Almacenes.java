@@ -20,14 +20,14 @@ public class Almacenes {
 	//Atributos de la entidad almacenes
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)//busca último valor e incrementa desde la id final del db
-	private Long id;
+	private long id;
 	@Column(name = "lugar")
 	private String lugar;
 	@Column(name = "capacidad")
-	private Integer capacidad; //Quizás hay que poner el integer en mayúsuculas y el nombre entero
+	private int capacidad; //Quizás hay que poner el integer en mayúsuculas y el nombre entero
 	
 	@OneToMany
-	@JoinColumn(name="codigo_almacen")//dudas sobre a quién llamo
+	@JoinColumn(name="id")
 	private List <Cajas> cajas;
 	
 	//Constructores
@@ -42,7 +42,7 @@ public class Almacenes {
 	}
 	//Getters y setters
 
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 
@@ -58,7 +58,7 @@ public class Almacenes {
 		this.lugar = lugar;
 	}
 
-	public Integer getCapacidad() {
+	public int getCapacidad() {
 		return capacidad;
 	}
 
